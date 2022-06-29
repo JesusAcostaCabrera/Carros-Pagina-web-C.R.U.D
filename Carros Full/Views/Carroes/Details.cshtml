@@ -1,0 +1,85 @@
+﻿@model Carros_Full.Carro
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Carro</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <div class="col-lg-1">
+            <img src="~/Public/Carros/@(string.IsNullOrEmpty(Model.Imagen) ? "avatar.png" : Model.Imagen)" style="height:200px; width:200px" />
+        </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.TipodeCarro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipodeCarro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.precio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.precio)$
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.traccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.traccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.transmision)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.transmision)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cantidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cantidad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fechacreada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fechacreada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Compañia.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compañia.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Modelo.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modelo.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Carros_Full.Carro>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2></h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Foto
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Modelo.nombre)
+        </th>
+        <th>
+            Tipo de Carro
+        </th>
+        <th>
+            Detalles
+        </th>
+        <th>
+            Precio
+        </th>
+        <th>
+            Stock
+        </th>
+        <th>
+            Fecha de creación
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="~/Public/Carros/@(string.IsNullOrEmpty(item.Imagen) ? "avatar.png" : item.Imagen)" style="height:75px; width:75px" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Modelo.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipodeCarro)
+        </td>
+        <td>
+            Tracción: @item.traccion <br/>
+            Transmisión: @item.transmision <br/>
+            Compañia: @item.Compañia.compañia1            
+        </td>
+        <td>
+            <span style="color:blue"> </span>@item.precio$
+        </td>
+        <td>
+            Disponibles: @item.Cantidad
+        </td>
+        <td>
+            Fecha Creado: @Html.DisplayFor(modelItem => item.fechacreada)
+        </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

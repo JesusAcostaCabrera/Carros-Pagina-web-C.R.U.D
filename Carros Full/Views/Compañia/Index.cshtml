@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Carros_Full.Compañia>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Proveedor y compañia</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nombre Proveedor
+        </th>
+        <th>
+            Compañia
+        </th>
+        <th>
+            Fecha Creada
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.compañia1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fechacreada)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+        </td>
+    </tr>
+}
+
+</table>

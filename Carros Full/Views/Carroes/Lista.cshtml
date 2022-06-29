@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Carros_Full.Carro>
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Lista de carros</h2>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-lg-3">
+            <img src="~/Public/Carros/@(string.IsNullOrEmpty(item.Imagen) ? "avatar.png" : item.Imagen)" style="height:200px; width:200px" /> <br />
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.id }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.id }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.id })
+            </td>
+        </div>
+    }
+</div>
